@@ -1,6 +1,8 @@
+import java.util.Scanner;
 public class TTTGameTest
 {
 	//PlayerOne = X; PlayerTwo = O;
+	public Scanner input = new Scanner(System.in);
 	public String[][] gameState = new String[3][3];
 	public TTTGameTest()
 	{
@@ -44,26 +46,40 @@ public class TTTGameTest
 	{
 		return false;
 	}
-	public void onePlay(int row, int col)
+	public void onePlay()
 	{
+		System.out.println("Player 1:");
+		System.out.println("What row do you want to play in? ");
+		row = input.nextInt();
+		System.out.println("What column do you want to play in? ");
+		col = input.nextInt();
+		
 		if(gameState[row][col] == null)
 		{
 			gameState[row][col] = "X";
 		}
 		else
 		{
-			System.out.println("You tried to go where there was already a peice and lost your turn");
+			System.out.println("That spot is taken try again");
+			onePlay();
 		}
 	}
-	public void twoPlay(int row, int col)
+	public void twoPlay()
 	{
+		System.out.println("Player 2:");
+		System.out.println("What row do you want to play in? ");
+		row = input.nextInt();
+		System.out.println("What column do you want to play in? ");
+		col = input.nextInt();
+		
 		if(gameState[row][col] == null)
 		{
 			gameState[row][col] = "O";
 		}
 		else
 		{
-			System.out.println("You tried to go where there was already a piece and lost your turn");
+			System.out.println("That spot is taken try again");
+			twoPlay();
 		}
 	}
 }
