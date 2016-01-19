@@ -44,16 +44,49 @@ public class TTTGameTest
 	}
 	public boolean checkFinished()
 	{
+		if(gameState[0][0] != null && gameState[0][1] != null && gameState[0][2] != null)
+		{
+			return true;
+		}
+		if(gameState[1][0] != null && gameState[1][1] != null && gameState[1][2] != null)
+		{
+			return true;
+		}
+		if(gameState[2][0] != null && gameState[2][1] != null && gameState[2][2] != null)
+		{
+			return true;
+		}
+		if(gameState[0][0] != null && gameState[1][0] != null && gameState[2][0] != null)
+		{
+			return true;
+		}
+		if(gameState[0][1] != null && gameState[1][1] != null && gameState[2][1] != null)
+		{
+			return true;
+		}
+		if(gameState[0][2] != null && gameState[1][2] != null && gameState[2][2] != null)
+		{
+			return true;
+		}
+		if(gameState[0][0] != null && gameState[1][1] != null && gameState[2][2] != null)
+		{
+			return true;
+		}
+		if(gameState[2][0] != null && gameState[1][1] != null && gameState[0][2] != null)
+		{
+			return true;
+		}
 		return false;
 	}
 	public void onePlay()
 	{
+		int row,col;
 		System.out.println("Player 1:");
 		System.out.println("What row do you want to play in? ");
 		row = input.nextInt();
 		System.out.println("What column do you want to play in? ");
 		col = input.nextInt();
-		
+
 		if(gameState[row][col] == null)
 		{
 			gameState[row][col] = "X";
@@ -66,12 +99,13 @@ public class TTTGameTest
 	}
 	public void twoPlay()
 	{
+		int row,col;
 		System.out.println("Player 2:");
 		System.out.println("What row do you want to play in? ");
 		row = input.nextInt();
 		System.out.println("What column do you want to play in? ");
 		col = input.nextInt();
-		
+
 		if(gameState[row][col] == null)
 		{
 			gameState[row][col] = "O";
